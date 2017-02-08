@@ -8,7 +8,14 @@ DialogT::DialogT(QWidget *parent) :
     ui->setupUi(this);
     QString file(":/txt/txt/zle_odpowiedzi.txt");
     import(zleOdp,file);
-    //ui->label->setPixmap(bassa[2].SeeImg());
+    cleanWindow();
+
+    player = new QMediaPlayer(this);
+    connect(player,SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)),this,SLOT(statusChanged(QMediaPlayer::MediaStatus)));
+
+    connect(ui->label,SIGNAL(Pressed(int)),this,SLOT(play()));
+
+
 }
 
 DialogT::~DialogT()
@@ -34,6 +41,15 @@ void DialogT::ustawOdpinB(QString a)
 void DialogT::ustawOdpinC(QString a)
 {
     OdpC = a;
+}
+
+void DialogT::cleanWindow()
+{
+    // Odznaczanie przycisków
+    ui->pOdpA->isDefault();
+    ui->pOdpB->isDefault();
+    ui->pOdpC->isDefault();
+    ui->l_Odp->setText(""); // <-- Zerowanie komentarza, po przejściu do następnego pytania
 }
 
 QString DialogT::beltOdp(int x)
@@ -78,11 +94,17 @@ void DialogT::odbiornik(QString n2)
         Item::import( bassa, ns);
         ui->label->setPixmap(bassa[t].SeeImg());
         umiescOdp(bassa[t].SeeName());
+        //player->setMedia(bassa[t].SeeWsk());
     }
     else
     {
         ui->l_Odp->setText("Coś się wykrzacza!");
     }
+}
+
+void DialogT::Pressed(int)
+{
+     player->play();
 }
 // Trzeba tutaj wstawic wywoalnie klikniecia ze zmienna
 // do bazy patrz album.cpp
@@ -109,11 +131,15 @@ void DialogT::on_pNext_clicked()
     t++;
     ui->label->setPixmap(bassa[t].SeeImg());
     umiescOdp(bassa[t].SeeName());
+    //player->setMedia(bassa[t].SeeWsk());
+    player->setMedia(QUrl::fromLocalFile(/*ns3*/"C:/Users/Bartosz/Downloads/exd.mp3"));
+    cleanWindow();
 
-
-    if(t>9)
+    if(t==9)
     {
         t=0;
+        player->stop();
+        cleanWindow();
         delete ui;
         this->close();
 
@@ -185,15 +211,30 @@ void DialogT::import(QVector<QString> &db, QString &f)
     while(bufor!=NULL);
 
 }
-// Wczytanie tablicy napisz funkcje, mozna zastosowac tablice typu wektor
-// wybierzemy wtedy losowe linie ( czyt. elementy tablicy )
-// potem porownamy, czy nie jest przypadkiem to taka sama nazwa jak odpowiedz poprawna
-// jezeli jest to losuj inna, a jak nie to zostaw
-// buziaki :**, pa
-// DAMY RADĘ !!!
-// P.S - trzeba zacząc komnetowac ten kod i pomyslec 2 razy nad nazwami zmiennych itd
+void DialogT::statusChanged(QMediaPlayer::MediaStatus status)
+{
+    switch(status)
+    {
+    case QMediaPlayer::EndOfMedia:
+           play();
+           break;
 
-// Na niedziele - wczytywanie zrobione, teraz potrzeba tylko podpiac wyswietlanie i podpisy
-// Nie łam się - jeszcze tylko testy i estetyczne/kosmetyczne poprawki
-// Trzymam kciuki!
-// :**, pa <3
+    default:
+        break;
+    }
+}
+void DialogT::play()
+{
+    if(player->state() != QMediaPlayer::PlayingState)
+    {
+        player->play();
+    }
+    else
+    {
+        player->stop();
+    }
+}
+void DialogT::stop()
+{
+    player->stop();
+}

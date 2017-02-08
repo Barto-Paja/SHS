@@ -39,11 +39,14 @@ public:
     void ustawOdpinB(QString a);
     void ustawOdpinC(QString a);
 
+    void cleanWindow();
+
     QString beltOdp(int x);
     void spr_odpowiedz(QString &o, int &w);
 
 public slots:
     void odbiornik(QString);
+    void Pressed(int);
 
 private slots:
     // Przyciski
@@ -52,12 +55,17 @@ private slots:
     void on_pOdpC_clicked();
     void on_pNext_clicked();
 
+    void statusChanged(QMediaPlayer::MediaStatus);  // obsługa zmian statusów
+    void play();					// reakcje na wciśnięcie:	// odtwórz/pauza
+    void stop();
+
     void umiescOdp(QString oa);
     void import(QVector<QString> &db, QString &f);
 private:
     // Odpowiedzi
     QString OdpA,OdpB,OdpC;
 
+    QMediaPlayer *player;
     Ui::DialogT *ui;
 };
 
