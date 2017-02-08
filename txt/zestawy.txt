@@ -1,0 +1,27 @@
+:/img/img/zwierzetalogo.jpg
+:/txt/txt/Zwierzeta.txt
+Zwierzęta
+:/img/img/zEgzotycznelogo.jpg
+:/txt/txt/ZwierzetaEgzotyczne.txt
+Zwierzęta Egzotyczne
+:/img/img/ptakilogo.jpg
+:/txt/txt/Ptaki.txt
+Ptaki
+:/img/img/instrumentylogo.jpg
+:/txt/txt/Instrumenty.txt
+Instrumenty
+:/img/img/pojazdylogo.jpg
+:/txt/txt/Pojazdy.txt
+Pojazdy
+:/img/img/ludzielogo.jpg
+:/txt/txt/Ludzie.txt
+Ludzie
+:/img/img/przyrodalogo.jpg
+:/txt/txt/Przyroda.txt
+Przyroda
+:/img/img/cdzwiekilogo.png
+:/txt/txt/CodzienneDzwieki.txt
+Codzienne Dźwięki
+:/img/img/alarmylogo.png
+:/txt/txt/SygnalyAlarmowe.txt
+Sygnały Alarmowe

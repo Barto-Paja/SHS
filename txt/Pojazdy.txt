@@ -1,0 +1,27 @@
+:/img/img/bus-1825142_640.jpg
+dzwiek-autobusu
+Autobus
+:/img/img/helicopter-1658904_640.jpg
+dzwiek-helikoptra
+Helikopter
+:/img/img/locomotive-60539_640.jpg
+ciu-ciu
+Pociąg ( Lokomotywa )
+:/img/img/sailboat-459794_640.jpg
+statek-dzwiek
+Statek
+:/img/img/streetcar-1376899_640.jpg
+tramfaj
+Tramwaj
+:/img/img/subaru-1000852_640.jpg
+boxer-sound
+Samochód
+:/img/img/tractor-887744_640.jpg
+pyr-pyr
+Traktor
+:/img/img/motorcycle-345001_640.jpg
+wziu
+Motor ( Motocykl )
+:/img/img/aircraft-994943_640.jpg
+guuuu
+Samolot
