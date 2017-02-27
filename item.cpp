@@ -1,8 +1,7 @@
 #include "item.h"
 
-Item::Item()
+Item::Item():img(),wsk("txt"),name("txt")
 {
-
 }
 
 void Item::import(QVector<Item> &tab, QString &f)

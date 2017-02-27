@@ -36,6 +36,7 @@ Kategorie::Kategorie(QWidget *parent) :
     connect(this,SIGNAL(send(QString)),form,SLOT(odbiornik(QString)));
     connect(this,SIGNAL(send(QString)),form2,SLOT(odbiornik(QString)));
 
+
 }
 
 Kategorie::~Kategorie()

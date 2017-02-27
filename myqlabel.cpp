@@ -1,7 +1,7 @@
 #include "myqlabel.h"
 
 myQLabel::myQLabel(QWidget *parent) : QLabel(parent)
-{
+{    
 }
 
 void myQLabel::mousePressEvent(QMouseEvent *event)

@@ -1,4 +1,64 @@
 <RCC>
+    <qresource prefix="/img">
+        <file>img/lampart-640.jpg</file>
+        <file>img/alarmylogo.png</file>
+        <file>img/cdzwiekilogo.png</file>
+        <file>img/instrumentylogo.jpg</file>
+        <file>img/ludzielogo.jpg</file>
+        <file>img/pojazdylogo.jpg</file>
+        <file>img/przyrodalogo.jpg</file>
+        <file>img/ptakilogo.jpg</file>
+        <file>img/zEgzotycznelogo.jpg</file>
+        <file>img/zwierzetalogo.jpg</file>
+        <file>img/acoustic-guitar-149427_640.png</file>
+        <file>img/aircraft-994943_640.jpg</file>
+        <file>img/animal-1836644_640.jpg</file>
+        <file>img/animal-1867562_640.jpg</file>
+        <file>img/bus-1825142_640.jpg</file>
+        <file>img/camel-1615446_640.jpg</file>
+        <file>img/cat-1192026_640.jpg</file>
+        <file>img/chicken-1572844_640.jpg</file>
+        <file>img/child-594519_640.jpg</file>
+        <file>img/child-1674021_640.jpg</file>
+        <file>img/christmas-decorations-1150015_640.jpg</file>
+        <file>img/drums-1696802_640.png</file>
+        <file>img/elephant-114543_640.jpg</file>
+        <file>img/flute-1758799_640.jpg</file>
+        <file>img/giraffe-657773_640.jpg</file>
+        <file>img/helicopter-1658904_640.jpg</file>
+        <file>img/lightning-199651_640.jpg</file>
+        <file>img/lion-515030_640.jpg</file>
+        <file>img/locomotive-60539_640.jpg</file>
+        <file>img/motorcycle-345001_640.jpg</file>
+        <file>img/music-727219_640.jpg</file>
+        <file>img/niagara-218591_640.jpg</file>
+        <file>img/owl-275940_640.jpg</file>
+        <file>img/percussion-1594331_640.jpg</file>
+        <file>img/piano-1508907_640.jpg</file>
+        <file>img/rain-1479303_640.jpg</file>
+        <file>img/reed-1246310_640.jpg</file>
+        <file>img/sailboat-459794_640.jpg</file>
+        <file>img/stork-838424_640.jpg</file>
+        <file>img/streetcar-1376899_640.jpg</file>
+        <file>img/subaru-1000852_640.jpg</file>
+        <file>img/tractor-887744_640.jpg</file>
+        <file>img/tuba-1315953_640.jpg</file>
+        <file>img/violin-924349_640.jpg</file>
+        <file>img/wave-1789151_640.jpg</file>
+        <file>img/winter-260838_640.jpg</file>
+        <file>img/woda1.jpg</file>
+        <file>img/ambulance-1874764_640.jpg</file>
+        <file>img/applauding-41640_640.png</file>
+        <file>img/door-334123_640.jpg</file>
+        <file>img/kettle-653673_640.jpg</file>
+        <file>img/magirus-fire-truck-1349795_640.jpg</file>
+        <file>img/phone-499991_640.jpg</file>
+        <file>img/police-car-490677_640.jpg</file>
+        <file>img/steps-1081909_640.jpg</file>
+        <file>img/stock-photo-close-up-of-hand-knocking-on-the-door-226990156.jpg</file>
+        <file>img/the-ball-488718_640.jpg</file>
+        <file>img/woman-586185_640.jpg</file>
+    </qresource>
     <qresource prefix="/txt">
         <file>txt/CodzienneDzwieki.txt</file>
         <file>txt/Instrumenty.txt</file>
@@ -13,32 +73,4 @@
         <file>txt/zle_odpowiedzi.txt</file>
     </qresource>
     <qresource prefix="/sound"/>
-    <qresource prefix="/img">
-        <file>img/animal-1836644_640.jpg</file>
-        <file>img/animal-1867562_640.jpg</file>
-        <file>img/camel1280.jpg</file>
-        <file>img/cat1280.jpg</file>
-        <file>img/chicken-1572844_640.jpg</file>
-        <file>img/dog1280.jpg</file>
-        <file>img/donkey1280.jpg</file>
-        <file>img/duck1280.jpg</file>
-        <file>img/elephant-114543_640.jpg</file>
-        <file>img/giraffe1280.jpg</file>
-        <file>img/goat1280.jpg</file>
-        <file>img/goose1280.jpg</file>
-        <file>img/hippo1280.jpg</file>
-        <file>img/horse1280.jpg</file>
-        <file>img/krowa1280.jpg</file>
-        <file>img/lion-515030_640.jpg</file>
-        <file>img/owl-275940_640.jpg</file>
-        <file>img/parrot1280.jpg</file>
-        <file>img/pig1280.jpg</file>
-        <file>img/sheep1280.jpg</file>
-        <file>img/squirrel-monkey1280.jpg</file>
-        <file>img/stork1280.jpg</file>
-        <file>img/turkey1280.jpg</file>
-        <file>img/wolf1280.jpg</file>
-        <file>img/zebra1280.jpg</file>
-        <file>img/bear1280.jpg</file>
-    </qresource>
 </RCC>
