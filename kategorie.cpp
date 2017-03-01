@@ -25,7 +25,8 @@ Kategorie::Kategorie(QWidget *parent) :
 
     for(int i=0; i<9; i++)
     {
-        tab[i]->setPixmap(baza[i].SeeImg().scaled(212,102,Qt::KeepAspectRatio));
+        //tab[i]->setPixmap(baza[i].SeeImg().scaled(212,102,Qt::KeepAspectRatio));
+        tab[i]->setPixmap(baza[i].img.scaled(212,102,Qt::KeepAspectRatio));
         tab[i]->SetRef(i);
     }
     for(int i=0; i<9; i++)
