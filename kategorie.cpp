@@ -10,7 +10,7 @@ Kategorie::Kategorie(QWidget *parent) :
     form2 = new DialogT(this);
 
     zestaw = ":/txt/txt/zestawy.txt";
-    Item::import(baza,zestaw);
+    //Item::import(baza,zestaw);
 
     // Spawanie na sztywno wskaźników z myQlabel
     tab[0]= ui->label;
@@ -23,19 +23,22 @@ Kategorie::Kategorie(QWidget *parent) :
     tab[7]= ui->label_8;
     tab[8]= ui->label_9;
 
-    for(int i=0; i<9; i++)
-    {
-        //tab[i]->setPixmap(baza[i].SeeImg().scaled(212,102,Qt::KeepAspectRatio));
-        tab[i]->setPixmap(baza[i].img.scaled(212,102,Qt::KeepAspectRatio));
-        tab[i]->SetRef(i);
-    }
-    for(int i=0; i<9; i++)
-    {
-        connect(tab[i],SIGNAL(Pressed(int)),this,SLOT(Pressed(int)));
+//    for(int i=0; i<9; i++)
+//    {
+//        tab[i]->setPixmap(baza[i].img.scaled(212,102,Qt::KeepAspectRatio));
+//        tab[i]->SetRef(i);
+//    }
+//    for(int i=0; i<9; i++)
+//    {
+//        connect(tab[i],SIGNAL(Pressed(int)),this,SLOT(Pressed(int)));
 
-    }
+//    }
     connect(this,SIGNAL(send(QString)),form,SLOT(odbiornik(QString)));
     connect(this,SIGNAL(send(QString)),form2,SLOT(odbiornik(QString)));
+
+    myQLabel *labi = new myQLabel;
+    labi->setText("I'm labi :*");
+    ui->gridLayout_2->addWidget(labi);
 
 
 }
@@ -47,8 +50,8 @@ Kategorie::~Kategorie()
 }
 void Kategorie::Pressed(int t)
 {
-    QString ns=baza[t].SeeWsk();
-    emit send(ns);
+    //QString ns=baza[t].SeeWsk();
+    //emit send(ns);
 
     if(info==false)
     {

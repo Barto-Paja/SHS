@@ -15,7 +15,7 @@ class Kategorie;
 }
 class Album;
 class DialogT;
-class Kategorie : public QDialog, private Item
+class Kategorie : public QDialog
 {
     Q_OBJECT
 
@@ -24,7 +24,6 @@ public:
     ~Kategorie();
 
     QString zestaw;
-    QVector<Item> baza;
     myQLabel *tab[9];
     Album* form;
     bool info=false;
