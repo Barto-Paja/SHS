@@ -10,24 +10,7 @@ Kategorie::Kategorie(QWidget *parent) :
     form2 = new DialogT(this);
 
     zestaw = ":/txt/txt/zestawy.txt";
-    //Item::import(baza,zestaw);
 
-    // Spawanie na sztywno wskaźników z myQlabel
-    tab[0]= ui->label;
-    tab[1]= ui->label_2;
-    tab[2]= ui->label_3;
-    tab[3]= ui->label_4;
-    tab[4]= ui->label_5;
-    tab[5]= ui->label_6;
-    tab[6]= ui->label_7;
-    tab[7]= ui->label_8;
-    tab[8]= ui->label_9;
-
-//    for(int i=0; i<9; i++)
-//    {
-//        tab[i]->setPixmap(baza[i].img.scaled(212,102,Qt::KeepAspectRatio));
-//        tab[i]->SetRef(i);
-//    }
 //    for(int i=0; i<9; i++)
 //    {
 //        connect(tab[i],SIGNAL(Pressed(int)),this,SLOT(Pressed(int)));
@@ -35,12 +18,22 @@ Kategorie::Kategorie(QWidget *parent) :
 //    }
     connect(this,SIGNAL(send(QString)),form,SLOT(odbiornik(QString)));
     connect(this,SIGNAL(send(QString)),form2,SLOT(odbiornik(QString)));
-
+/* Notatka ------------------------
     myQLabel *labi = new myQLabel;
     labi->setText("I'm labi :*");
-    ui->gridLayout_2->addWidget(labi);
+    labi->setFrameStyle(2);
+    myQLabel *labos = new myQLabel;
+    labos->setText("I'm Labos ^^");
+    labos->setFrameStyle(3);
+    myQLabel *gringo = new myQLabel;
+    gringo->setText("Hi! I'm gringo!");
+    gringo->setFrameStyle(2);
+    ui->gridLayout_2->addWidget(labi,0,0);
+    ui->gridLayout_2->setSpacing(10);
+    ui->gridLayout_2->addWidget(labos,0,1);
+    ui->gridLayout_2->addWidget(gringo,1,0);
 
-
+-------------------------------------------------*/
 }
 
 Kategorie::~Kategorie()

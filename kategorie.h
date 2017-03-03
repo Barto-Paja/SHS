@@ -24,7 +24,6 @@ public:
     ~Kategorie();
 
     QString zestaw;
-    myQLabel *tab[9];
     Album* form;
     bool info=false;
     DialogT* form2;

@@ -11,7 +11,6 @@ void Item::import(QVector<Item> &tab, QString &f)
     QTextStream stream(&plik);
     stream.setCodec("UTF-8");
 
-    //plik.open(QFile::ReadOnly);`
     int size ;
     ilewierszy(plik, size);
     size = size/3;
