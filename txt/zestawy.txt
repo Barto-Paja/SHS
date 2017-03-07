@@ -21,7 +21,7 @@ Ludzie
 Przyroda
 :/img/img/cdzwiekilogo.png
 :/txt/txt/CodzienneDzwieki.txt
-Codzienne Dźwięki
+CodzienneDźwięki
 :/img/img/alarmylogo.png
 :/txt/txt/SygnalyAlarmowe.txt
-Sygnały Alarmowe
+SygnałyAlarmowe

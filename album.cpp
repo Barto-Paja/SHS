@@ -23,17 +23,29 @@ void Album::odbiornik(QString n1)
     if(n1!=0)
     {
         ns=n1;
-        Item::import(basa,ns);
 
-        for(int i=0; i<9; i++)
+        Item::import(basa,ns);
+        QFile zp(Kategorie::tablica[ns].SeeWsk()); // <-- tutaj podmienic, utworzyc sygnał w sprawie przesyłania do pliku zasobu
+        Item::ilewierszy(zp,n=0);
+        n=n/3;
+        for(int i=0; i<n; i++)
         {
-            tab1[i]->setPixmap(basa[i].SeeImg().scaled(222,102,Qt::KeepAspectRatio));
-            tab1[i]->SetRef(i);
+            tab << new myQLabel(this);
+            //tab.at(i)->setText("I'm label nr: "+QString::number(n));
+            tab.at(i)->setPixmap(tablica[i].SeeImg().scaled(300,164,Qt::KeepAspectRatio));
+            tab.at(i)->setFrameStyle(3);
         }
+
+//        for(int i=0;i<n;i++)
+//        {
+//            ui->gridLayout->addWidget(tab.at(i),(i/3),(i%3));
+//            connect(tab.at(i),SIGNAL(Pressed(int)),this,SLOT(Pressed(int)));
+//        }
+
     }
     else
     {
-        ui->label->setText("Coś się wykrzacza!");
+       // ui->label->setText("Coś się wykrzacza!");
     }
 
 }
@@ -53,19 +65,11 @@ void Album::Pressed(int t)
 
 void Album::spawanie()
 {
-    tab1[0]= ui->label;
-    tab1[1]= ui->label_2;
-    tab1[2]= ui->label_3;
-    tab1[3]= ui->label_4;
-    tab1[4]= ui->label_5;
-    tab1[5]= ui->label_6;
-    tab1[6]= ui->label_7;
-    tab1[7]= ui->label_8;
-    tab1[8]= ui->label_9;
 
-    for(int i=0; i<9; i++)
-        {
-            connect(tab1[i],SIGNAL(Pressed(int)),this,SLOT(Pressed(int)));
-        }
+
+//    for(int i=0; i<9; i++)
+//        {
+//            connect(tab1[i],SIGNAL(Pressed(int)),this,SLOT(Pressed(int)));
+//        }
 
 }

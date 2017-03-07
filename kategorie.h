@@ -8,14 +8,18 @@
 
 #include <QDialog>
 #include <QVector>
+#include <QList>
 
+#include <fstream>
+
+using namespace std;
 
 namespace Ui {
 class Kategorie;
 }
 class Album;
 class DialogT;
-class Kategorie : public QDialog
+class Kategorie : public QDialog, private Item
 {
     Q_OBJECT
 
@@ -27,6 +31,9 @@ public:
     Album* form;
     bool info=false;
     DialogT* form2;
+    QVector<Item> tablica;
+    QList<myQLabel *> tab;
+    int n;
 
 signals:
     void send(QString);

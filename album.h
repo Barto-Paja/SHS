@@ -23,9 +23,10 @@ public:
     ~Album();
     QString ns;
     QVector<Item> basa;
-    myQLabel *tab1[9];
+    QList<myQLabel *> tab;
 
     Dialog* form;
+    int n;
 
 signals:
     void info(QPixmap,QString,QString);

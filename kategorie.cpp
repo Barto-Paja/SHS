@@ -1,6 +1,9 @@
 #include "kategorie.h"
 #include "ui_kategorie.h"
 
+#include <fstream>
+#include <string>
+
 Kategorie::Kategorie(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Kategorie)
@@ -9,31 +12,32 @@ Kategorie::Kategorie(QWidget *parent) :
     form = new Album(this);
     form2 = new DialogT(this);
 
+
+// Importowanie kategorii , łączenie sygnałów i tworzenie interfejsu
     zestaw = ":/txt/txt/zestawy.txt";
+    QFile zp(zestaw); // <-- zmienna pomocnicza, do wyliczenia wierszy
+    Item::import(tablica,zestaw);
+    Item::ilewierszy(zp,n=0);
 
-//    for(int i=0; i<9; i++)
-//    {
-//        connect(tab[i],SIGNAL(Pressed(int)),this,SLOT(Pressed(int)));
+    ui->gridLayout->setSpacing(10);
+    n=n/3;
+    for(int i=0;i<n;i++)
+    {
+        tab << new myQLabel(this);
+        //tab.at(i)->setText("I'm label nr: "+QString::number(n));
+        tab.at(i)->setPixmap(tablica[i].SeeImg().scaled(300,164,Qt::KeepAspectRatio));
+        tab.at(i)->setFrameStyle(3);
+    }
 
-//    }
-    connect(this,SIGNAL(send(QString)),form,SLOT(odbiornik(QString)));
-    connect(this,SIGNAL(send(QString)),form2,SLOT(odbiornik(QString)));
-/* Notatka ------------------------
-    myQLabel *labi = new myQLabel;
-    labi->setText("I'm labi :*");
-    labi->setFrameStyle(2);
-    myQLabel *labos = new myQLabel;
-    labos->setText("I'm Labos ^^");
-    labos->setFrameStyle(3);
-    myQLabel *gringo = new myQLabel;
-    gringo->setText("Hi! I'm gringo!");
-    gringo->setFrameStyle(2);
-    ui->gridLayout_2->addWidget(labi,0,0);
-    ui->gridLayout_2->setSpacing(10);
-    ui->gridLayout_2->addWidget(labos,0,1);
-    ui->gridLayout_2->addWidget(gringo,1,0);
+    for(int i=0;i<n;i++)
+    {
+        ui->gridLayout->addWidget(tab.at(i),(i/3),(i%3));
+        connect(tab.at(i),SIGNAL(Pressed(int)),this,SLOT(Pressed(int)));
+    }
 
--------------------------------------------------*/
+        connect(this,SIGNAL(send(QString)),form,SLOT(odbiornik(QString)));
+        connect(this,SIGNAL(send(QString)),form2,SLOT(odbiornik(QString)));
+
 }
 
 Kategorie::~Kategorie()
@@ -43,8 +47,8 @@ Kategorie::~Kategorie()
 }
 void Kategorie::Pressed(int t)
 {
-    //QString ns=baza[t].SeeWsk();
-    //emit send(ns);
+    QString ns=tablica[t].SeeWsk();
+    emit send(ns);
 
     if(info==false)
     {

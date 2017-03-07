@@ -11,11 +11,10 @@ void Item::import(QVector<Item> &tab, QString &f)
     QTextStream stream(&plik);
     stream.setCodec("UTF-8");
 
-    int size ;
-    ilewierszy(plik, size);
-    size = size/3;
+    int size;
+    ilewierszy(plik, size=0);
     plik.open(QFile::ReadOnly);
-    for(int i=0;i<size;i++)
+    for(int i=0;i<(size/3);i++)
     {
         Item nosnik;
         bufor = stream.readLine();
@@ -38,7 +37,7 @@ int Item::ilewierszy(QFile &plik, int &i)
     plik.open(QFile::ReadOnly);
        QString bufor;
        QTextStream stream(&plik);
-       while(!plik.atEnd())
+       while(!stream.atEnd())
        {
            bufor = stream.readLine();
            i++;
