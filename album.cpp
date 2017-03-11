@@ -25,7 +25,7 @@ void Album::odbiornik(QString n1)
         ns=n1;
 
         Item::import(basa,ns);
-        QFile zp(Kategorie::tablica[ns].SeeWsk()); // <-- tutaj podmienic, utworzyc sygnał w sprawie przesyłania do pliku zasobu
+        QFile zp(ns);
         Item::ilewierszy(zp,n=0);
         n=n/3;
         for(int i=0; i<n; i++)
