@@ -32,7 +32,7 @@ void Album::odbiornik(QString n1)
         {
             tab << new myQLabel(this);
             //tab.at(i)->setText("I'm label nr: "+QString::number(n));
-            tab.at(i)->setPixmap(tablica[i].SeeImg().scaled(300,164,Qt::KeepAspectRatio));
+            tab.at(i)->setPixmap(basa[i].SeeImg().scaled(300,164,Qt::KeepAspectRatio));
             tab.at(i)->setFrameStyle(3);
         }
 
