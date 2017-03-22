@@ -6,42 +6,36 @@ Album::Album(QWidget *parent) :
     ui(new Ui::Album)
 {
     ui->setupUi(this);
+    //tab = new QList<myQLabel *>;
     form = new Dialog(this);
-    spawanie();
+
     connect(this,SIGNAL(info(QPixmap,QString,QString)),form,SLOT(odbior(QPixmap,QString,QString)));
 
 }
 
 Album::~Album()
 {
+//    tab.clear();
+//    while(tab.isEmpty()==false)
+//    {
+//        tab.removeLast();
+//    }
+//    for(int i=0; i<n; i++)
+//    {
+//        ui->gridLayout->removeWidget(tabx.at(i));
+//    }
+//    tabx.clear();
     delete ui;
 }
 
 void Album::odbiornik(QString n1)
 {
     basa.clear();
+
     if(n1!=0)
     {
-        ns=n1;
-
-        Item::import(basa,ns);
-        QFile zp(ns);
-        Item::ilewierszy(zp,n=0);
-        n=n/3;
-        for(int i=0; i<n; i++)
-        {
-            tab << new myQLabel(this);
-            //tab.at(i)->setText("I'm label nr: "+QString::number(n));
-            tab.at(i)->setPixmap(basa[i].SeeImg().scaled(300,164,Qt::KeepAspectRatio));
-            tab.at(i)->setFrameStyle(3);
-        }
-
-//        for(int i=0;i<n;i++)
-//        {
-//            ui->gridLayout->addWidget(tab.at(i),(i/3),(i%3));
-//            connect(tab.at(i),SIGNAL(Pressed(int)),this,SLOT(Pressed(int)));
-//        }
-
+      ns=n1;
+      Item::import(basa,ns);
     }
     else
     {
@@ -52,24 +46,26 @@ void Album::odbiornik(QString n1)
 
 void Album::Pressed(int t)
 {
-    QPixmap img = basa[t].SeeImg();
-    QString name = basa[t].SeeName();
-    QString sound = basa[t].SeeWsk();
+//    QPixmap img = basa[t].SeeImg();
+//    QString name = basa[t].SeeName();
+//    QString sound = basa[t].SeeWsk();
 
-    emit info(img,name,sound);
+//    emit info(img,name,sound);
 
-    form->setModal(true);
-    form->exec();
+//    form->setModal(true);
+//    form->exec();
 
 }
 
-void Album::spawanie()
+void Album::spawanie(QString &f)
 {
+    int n;
+    QFile p(f);
+    Item::ilewierszy(p,n=0);
 
+//    tab << new myQLabel(this);
+//    tab.at(0)->setText("Bla bla bla!");
 
-//    for(int i=0; i<9; i++)
-//        {
-//            connect(tab1[i],SIGNAL(Pressed(int)),this,SLOT(Pressed(int)));
-//        }
+//    ui->gridLayout->addWidget(tab.at(0));
 
 }

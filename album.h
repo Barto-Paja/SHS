@@ -8,6 +8,7 @@
 
 #include <QDialog>
 #include <QVector>
+#include <QList>
 
 
 namespace Ui {
@@ -35,7 +36,7 @@ public slots:
     void Pressed(int);
 
 private:
-    void spawanie();
+    void spawanie(QString &f);
     Ui::Album *ui;
 };
 
