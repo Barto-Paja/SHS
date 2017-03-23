@@ -40,6 +40,7 @@ signals:
 private slots:
     void Pressed(int);
     void qOdbior(bool);
+
 private:
     Ui::Kategorie *ui;
 };

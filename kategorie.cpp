@@ -24,8 +24,9 @@ Kategorie::Kategorie(QWidget *parent) :
     for(int i=0;i<n;i++)
     {
         tab << new myQLabel(this);
-        //tab.at(i)->setText("I'm label nr: "+QString::number(n));
-        tab.at(i)->setPixmap(tablica[i].SeeImg().scaled(300,164,Qt::KeepAspectRatio));
+        tab.at(i)->SetRef(i);
+        tab.at(i)->setText("I'm label nr: "+QString::number(tab.at(i)->SeeRef()));
+        //tab.at(i)->setPixmap(tablica[i].SeeImg().scaled(300,164,Qt::KeepAspectRatio));
         tab.at(i)->setFrameStyle(3);
     }
 
@@ -37,7 +38,6 @@ Kategorie::Kategorie(QWidget *parent) :
 
         connect(this,SIGNAL(send(QString)),form,SLOT(odbiornik(QString)));
         connect(this,SIGNAL(send(QString)),form2,SLOT(odbiornik(QString)));
-
 }
 
 Kategorie::~Kategorie()
