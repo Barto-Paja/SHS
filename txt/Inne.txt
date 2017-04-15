@@ -1,0 +1,18 @@
+./img/suszarka1920.jpg
+./sound/suszarka.mp3
+Suszarka
+./img/telefon920.jpg
+./sound/telefon.mp3
+Telefon Dzwoniący
+./img/czajnik1920.jpg
+./sound/czajnik.mp3
+Gwizdek Czajnika
+./img/pukaniedodrzwi1920.jpg
+./sound/pukaniedodrzwi.mp3
+Pukanie do drzwi
+./img/klaskanie1920.jpg
+./sound/aplaus.mp3
+Klaskanie ( Aplaus Oklaski )
+./img/plusk1920.jpg
+./sound/kroplawody.mp3
+Kapanie wody

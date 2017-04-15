@@ -1,6 +1,7 @@
 ﻿#include "dialogt.h"
 #include "ui_dialogt.h"
 
+
 DialogT::DialogT(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DialogT)
@@ -8,7 +9,6 @@ DialogT::DialogT(QWidget *parent) :
     ui->setupUi(this);
     QString file(":/txt/txt/zle_odpowiedzi.txt");
     import(zleOdp,file);
-    //ui->label->setPixmap(bassa[2].SeeImg());
     player = new QMediaPlayer(this);
     connect(player,SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)),this,SLOT(statusChanged(QMediaPlayer::MediaStatus)));
     connect(ui->label,SIGNAL(Pressed(int)),this,SLOT(play()));
@@ -93,7 +93,7 @@ void DialogT::odbiornik(QString n2)
         Item::import( bassa, ns);
         ui->label->setPixmap(bassa[t].SeeImg());
         umiescOdp(bassa[t].SeeName());
-        player->setMedia(QUrl::fromLocalFile(bassa[t].SeeWsk()));
+        player->setMedia(QUrl(bassa[t].SeeWsk()));
     }
     else
     {
@@ -123,9 +123,9 @@ void DialogT::on_pOdpC_clicked()
 void DialogT::on_pNext_clicked()
 {
     t++;
-    ui->label->setPixmap(bassa[t].SeeImg());
+    ui->label->setPixmap(QPixmap(bassa[t].SeeImg()));
     umiescOdp(bassa[t].SeeName());
-    player->setMedia(QUrl::fromLocalFile(bassa[t].SeeWsk()));
+    player->setMedia(QUrl(bassa[t].SeeWsk()));
     cleanButton();
 
     if(t==9)
@@ -148,15 +148,6 @@ void DialogT::umiescOdp(QString oa)
     //int pom=zleOdp.size();
     oc = zleOdp[qrand()%(zleOdp.size()-1) ];
     ob = zleOdp[qrand()%(zleOdp.size()-1) ];
-//    do{
-//    ob = zleOdp[qrand()% zleOdp.size()];
-//    }
-//    while(ob==oc && ob==oa)
-//    {
-//        ob = zleOdp[qrand()% zleOdp.size()];
-//        //oc = zleOdp[qrand()% zleOdp.size()];
-//    }
-
 
     f=(qrand()%3);
     switch(f)

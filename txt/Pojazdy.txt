@@ -1,27 +1,33 @@
-:/img/img/bus-1825142_640.jpg
-dzwiek-autobusu
+./img/tczew920.jpg
+./sound/autobus.mp3
 Autobus
-:/img/img/helicopter-1658904_640.jpg
-dzwiek-helikoptra
+./img/helicopter1920.jpg
+./sound/helikopter.mp3
 Helikopter
-:/img/img/locomotive-60539_640.jpg
-ciu-ciu
+./img/train.jpg
+./sound/train.mp3
 Pociąg ( Lokomotywa )
-:/img/img/sailboat-459794_640.jpg
-statek-dzwiek
-Statek
-:/img/img/streetcar-1376899_640.jpg
-tramfaj
-Tramwaj
-:/img/img/subaru-1000852_640.jpg
-boxer-sound
+./img/cruise1920.jpg
+./sound/prom.mp3
+Statek ( Prom )
+./img/car1920.jpg
+./sound/silnik.mp3
 Samochód
-:/img/img/tractor-887744_640.jpg
-pyr-pyr
-Traktor
-:/img/img/motorcycle-345001_640.jpg
-wziu
+./img/motor1920.jpg
+./sound/motor.mp3
 Motor ( Motocykl )
-:/img/img/aircraft-994943_640.jpg
-guuuu
+./img/traktor1920.jpg
+./sound/perkinsc360.mp3
+Traktor ( Ciągnik )
+./img/samolot1920.jpg
+./sound/samolot.mp3
 Samolot
+./img/Ambulans_by_Ron.jpg
+./sound/ambulans.mp3
+Ambulans ( Pogotowie Ratunkowe Karetka )
+./img/strazpmpazdziora.jpg
+./sound/strazp.mp3
+Straż Pożarna
+./img/Policyjne_radiowozy.jpg
+./sound/policja.mp3
+Radiowóz

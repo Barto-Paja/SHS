@@ -12,16 +12,6 @@ Album::Album(QWidget *parent) :
 
 Album::~Album()
 {
-//    tab.clear();
-//    while(tab.isEmpty()==false)
-//    {
-//        tab.removeLast();
-//    }
-//    for(int i=0; i<n; i++)
-//    {
-//        ui->gridLayout->removeWidget(tabx.at(i));
-//    }
-//    tabx.clear();
     delete ui;
 }
 

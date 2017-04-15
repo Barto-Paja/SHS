@@ -40,4 +40,4 @@ RESOURCES += \
     zasoby.qrc
 
 DISTFILES += \
-    txt/zle_odpowiedzi.txt
+
