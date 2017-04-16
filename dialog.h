@@ -8,6 +8,7 @@
 
 #include <QMediaPlaylist>
 
+
 namespace Ui {
 class Dialog;
 }

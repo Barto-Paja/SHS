@@ -34,6 +34,7 @@ signals:
 public slots:
     void odbiornik(QString);
     void Pressed(int);
+//    void tets(int);
 
 private:
     void spawanie(QString &f);

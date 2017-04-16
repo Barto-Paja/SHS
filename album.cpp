@@ -6,7 +6,8 @@ Album::Album(QWidget *parent) :
     ui(new Ui::Album)
 {
     ui->setupUi(this);
-    //connect(this,SIGNAL(info(QPixmap,QString,QString)),form,SLOT(odbior(QPixmap,QString,QString)));
+    form = new Dialog(this);
+    connect(this,SIGNAL(info(QPixmap,QString,QString)),form,SLOT(odbior(QPixmap,QString,QString)));
 
 }
 
@@ -34,16 +35,18 @@ void Album::odbiornik(QString n1)
 
 void Album::Pressed(int t)
 {
-//    QPixmap img = basa[t].SeeImg();
-//    QString name = basa[t].SeeName();
-//    QString sound = basa[t].SeeWsk();
 
-//    emit info(img,name,sound);
+    QPixmap img = basa[t].SeeImg();
+    QString name = basa[t].SeeName();
+    QString sound = basa[t].SeeWsk();
 
-//    form->setModal(true);
-//    form->exec();
+    emit info(img,name,sound);
+
+    form->setModal(true);
+    form->exec();
 
 }
+
 
 void Album::spawanie(QString &f)
 {
@@ -59,8 +62,6 @@ void Album::spawanie(QString &f)
         tab.at(i)->setPixmap(basa[i].SeeImg().scaled(300,164,Qt::KeepAspectRatio));
         tab.at(i)->setFrameStyle(3);
         ui->gridLayout->addWidget(tab.at(i),(i/3),(i%3));
+        connect(tab.at(i),SIGNAL(Pressed(int)),this,SLOT(Pressed(int)));
     }
-
-    //ui->gridLayout->addWidget(tab.at(0));
-
 }

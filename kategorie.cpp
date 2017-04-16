@@ -27,8 +27,8 @@ Kategorie::Kategorie(QWidget *parent) :
         QFile qs(tablica[i].SeeWsk());
         tab << new myQLabel(this);
         tab.at(i)->SetRef(i);
-        //tab.at(i)->setText("I'm label nr: "+QString::number(tab.at(i)->SeeRef())+ " " +QString::number(ilewierszy(qs,q=0)));
-        tab.at(i)->setPixmap(tablica[i].SeeImg().scaled(300,164,Qt::KeepAspectRatio));
+        tab.at(i)->setText("I'm label nr: "+QString::number(tab.at(i)->SeeRef())+ " " +QString::number(ilewierszy(qs,q=0)));
+        //tab.at(i)->setPixmap(tablica[i].SeeImg().scaled(300,164,Qt::KeepAspectRatio));
         tab.at(i)->setFrameStyle(3);
     }
 
