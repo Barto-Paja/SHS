@@ -21,20 +21,14 @@ Dialog::~Dialog()
 }
 void Dialog::odbior(QPixmap n1, QString n2, QString n3)
 {
-
-
     ns1 = n1; // img
     ns2 = n2; // name
     ns3 = n3; // sound
 
 
     ui->label->setPixmap(ns1.scaled(760,430,Qt::KeepAspectRatio));
-    //player->setMedia(QUrl::fromLocalFile(/*ns3*/"C:/Users/Bartosz/Downloads/04 Oko do Oka.mp3")); // <-- Tutaj odkemntować ns3 i usunąć piosenkę
     player->setMedia(QUrl::fromLocalFile(ns3));
-    //playlist->setPlaybackMode(QMediaPlaylist::Loop);
-    //player->setPlaylist(playlist);
     ui->label_2->setText(ns2);
-
 }
 
 void Dialog::Pressed(int)

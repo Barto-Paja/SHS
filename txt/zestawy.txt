@@ -4,15 +4,15 @@ Zwierzęta
 ./img/zEgzotycznelogo.jpg
 :/txt/txt/ZwierzetaEgzotyczne.txt
 Zwierzęta Egzotyczne
-./img/ptakilogo.jpg
+./img/luis-llerena-14738.jpg
 :/txt/txt/Ptaki.txt
 Ptaki
 ./img/instrumentylogo.jpg
 :/txt/txt/Instrumenty.txt
 Instrumenty
-./img/pojazdylogo.jpg
+./img/gustavo-belemmi-67037.jpg
 :/txt/txt/Pojazdy.txt
 Pojazdy
-./img/
+./img/alarmylogo.png
 :/txt/txt/Inne.txt
 Inne

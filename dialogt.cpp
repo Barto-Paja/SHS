@@ -14,8 +14,6 @@ DialogT::DialogT(QWidget *parent) :
     connect(ui->label,SIGNAL(Pressed(int)),this,SLOT(play()));
 
     cleanButton();
-
-
 }
 
 DialogT::~DialogT()
@@ -91,7 +89,7 @@ void DialogT::odbiornik(QString n2)
     {
         ns=n2;
         Item::import( bassa, ns);
-        ui->label->setPixmap(bassa[t].SeeImg());
+        ui->label->setPixmap(bassa[t].SeeImg().scaled(640,300,Qt::KeepAspectRatio));
         umiescOdp(bassa[t].SeeName());
         player->setMedia(QUrl(bassa[t].SeeWsk()));
     }
@@ -100,8 +98,6 @@ void DialogT::odbiornik(QString n2)
         ui->l_Odp->setText("Coś się wykrzacza!");
     }
 }
-// Trzeba tutaj wstawic wywoalnie klikniecia ze zmienna
-// do bazy patrz album.cpp
 void DialogT::on_pOdpA_clicked()
 {
     QString pom(beltOdp(1));
@@ -123,7 +119,7 @@ void DialogT::on_pOdpC_clicked()
 void DialogT::on_pNext_clicked()
 {
     t++;
-    ui->label->setPixmap(QPixmap(bassa[t].SeeImg()));
+    ui->label->setPixmap(QPixmap(bassa[t].SeeImg().scaled(640,300,Qt::KeepAspectRatio)));
     umiescOdp(bassa[t].SeeName());
     player->setMedia(QUrl(bassa[t].SeeWsk()));
     cleanButton();

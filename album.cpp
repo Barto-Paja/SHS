@@ -8,7 +8,6 @@ Album::Album(QWidget *parent) :
     ui->setupUi(this);
     form = new Dialog(this);
     connect(this,SIGNAL(info(QPixmap,QString,QString)),form,SLOT(odbior(QPixmap,QString,QString)));
-
 }
 
 Album::~Album()
@@ -28,14 +27,16 @@ void Album::odbiornik(QString n1)
     }
     else
     {
-       // ui->label->setText("Coś się wykrzacza!");
+        QMessageBox msgBox;
+        msgBox.setText("Kategoria została niepoprawnie załadowana.");
+        msgBox.exec();
+        this->close();
     }
 
 }
 
 void Album::Pressed(int t)
 {
-
     QPixmap img = basa[t].SeeImg();
     QString name = basa[t].SeeName();
     QString sound = basa[t].SeeWsk();
@@ -44,7 +45,6 @@ void Album::Pressed(int t)
 
     form->setModal(true);
     form->exec();
-
 }
 
 
@@ -58,7 +58,6 @@ void Album::spawanie(QString &f)
     {
         tab << new myQLabel(this);
         tab.at(i)->SetRef(i);
-        //tab.at(i)->setText("I'm label nr: "+QString::number(tab.at(i)->SeeRef())+" "+basa[i].SeeName());
         tab.at(i)->setPixmap(basa[i].SeeImg().scaled(300,164,Qt::KeepAspectRatio));
         tab.at(i)->setFrameStyle(3);
         ui->gridLayout->addWidget(tab.at(i),(i/3),(i%3));
