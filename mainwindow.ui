@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Say Hear See</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="pView">
@@ -53,7 +53,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="zasoby.qrc">:/ico/img/hearing-99016_1280.png</pixmap>
+     <pixmap>:/ico/img/hearing-99016_1280.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -81,8 +81,6 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="zasoby.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

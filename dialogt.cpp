@@ -8,7 +8,7 @@ DialogT::DialogT(QWidget *parent) :
 {
     ui->setupUi(this);
     QString file(":/txt/txt/zle_odpowiedzi.txt");
-    import(zleOdp,file);
+    import(v_badanswers,file);
     player = new QMediaPlayer(this);
     connect(player,SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)),this,SLOT(statusChanged(QMediaPlayer::MediaStatus)));
     connect(ui->label,SIGNAL(Pressed(int)),this,SLOT(play()));
@@ -21,24 +21,24 @@ DialogT::~DialogT()
     delete ui;
 }
 
-void DialogT::ustawOdp(QString a, QString b, QString c)
+void DialogT::setAnswers(QString a, QString b, QString c)
 {
-    OdpA = a; OdpB = b; OdpC = c;
+    AnsA = a; AnsB = b; AnsC = c;
 }
 
-void DialogT::ustawOdpinA(QString a)
+void DialogT::setAnswerA(QString a)
 {
-    OdpA = a;
+    AnsA = a;
 }
 
-void DialogT::ustawOdpinB(QString a)
+void DialogT::setAnswerB(QString a)
 {
-    OdpB = a;
+    AnsB = a;
 }
 
-void DialogT::ustawOdpinC(QString a)
+void DialogT::setAnswerC(QString a)
 {
-    OdpC = a;
+    AnsC = a;
 }
 
 void DialogT::cleanButton()
@@ -49,31 +49,31 @@ void DialogT::cleanButton()
     ui->l_Odp->setText("");
 }
 
-QString DialogT::beltOdp(int x)
+QString& DialogT::showAnswer(int x)
 {
     switch(x)
     {
         case 1:
-        return OdpA;
+        return AnsA;
         break;
 
         case 2:
-        return OdpB;
+        return AnsB;
         break;
 
         case 3:
-        return OdpC;
+        return AnsC;
         break;
 
     default:
         break;
     }
-    return 0;
+    //return 0;
 }
 
-void DialogT::spr_odpowiedz(QString &o, int &w)
+void DialogT::checkAnswer(QString &chosenAnswer, int &ifq)
 {
-    if(o==bassa[w].SeeName())
+    if(chosenAnswer==v_categoryitems[ifq].SeeName())
     {
         ui->l_Odp->setText("Dobrze! :) Przejdź do następnego pytania");
     }
@@ -82,16 +82,15 @@ void DialogT::spr_odpowiedz(QString &o, int &w)
         ui->l_Odp->setText("Zastanów się i wybierz jeszcze raz odpowiedź ;)");
     }
 }
-void DialogT::odbiornik(QString n2)
+void DialogT::questsource(QString source)
 {
-    bassa.clear();
-    if(n2!=0)
+    v_categoryitems.clear();
+    if(source!=0)
     {
-        ns=n2;
-        Item::import( bassa, ns);
-        ui->label->setPixmap(bassa[t].SeeImg().scaled(640,300,Qt::KeepAspectRatio));
-        umiescOdp(bassa[t].SeeName());
-        player->setMedia(QUrl(bassa[t].SeeWsk()));
+        Item::Import( v_categoryitems, source);
+        ui->label->setPixmap(v_categoryitems[index].SeeImg().scaled(640,300,Qt::KeepAspectRatio));
+        setAnswer(v_categoryitems[index].SeeName());
+        player->setMedia(QUrl(v_categoryitems[index].SeePtr()));
     }
     else
     {
@@ -100,33 +99,30 @@ void DialogT::odbiornik(QString n2)
 }
 void DialogT::on_pOdpA_clicked()
 {
-    QString pom(beltOdp(1));
-    spr_odpowiedz(pom,t);
+    checkAnswer(showAnswer(1),index);
 }
 
 void DialogT::on_pOdpB_clicked()
 {
-    QString pom(beltOdp(2));
-    spr_odpowiedz(pom,t);
+    checkAnswer(showAnswer(2),index);
 }
 
 void DialogT::on_pOdpC_clicked()
 {
-    QString pom(beltOdp(3));
-    spr_odpowiedz(pom,t);
+    checkAnswer(showAnswer(3),index);
 }
 
 void DialogT::on_pNext_clicked()
 {
-    t++;
-    ui->label->setPixmap(QPixmap(bassa[t].SeeImg().scaled(640,300,Qt::KeepAspectRatio)));
-    umiescOdp(bassa[t].SeeName());
-    player->setMedia(QUrl(bassa[t].SeeWsk()));
+    index++;
+    ui->label->setPixmap(QPixmap(v_categoryitems[index].SeeImg().scaled(640,300,Qt::KeepAspectRatio)));
+    setAnswer(v_categoryitems[index].SeeName());
+    player->setMedia(QUrl(v_categoryitems[index].SeePtr()));
     cleanButton();
 
-    if(t==9)
+    if(index==9)
     {
-        t=0;
+        index=0;
         player->stop();
         cleanButton();
         delete ui;
@@ -134,37 +130,38 @@ void DialogT::on_pNext_clicked()
 
     }
 }
-void DialogT::umiescOdp(QString oa)
+void DialogT::setAnswer(QString oa)
 {
     // Zakładamy, że oa to dobra nasza odpowiedz
     int f;
-    int pom=zleOdp.size();
+    int pom = v_badanswers.size();
+
     QString ob(QString::number(pom));
     QString oc;
-    //int pom=zleOdp.size();
-    oc = zleOdp[qrand()%(zleOdp.size()-1) ];
-    ob = zleOdp[qrand()%(zleOdp.size()-1) ];
+
+    oc = v_badanswers[qrand()%(v_badanswers.size()-1) ];
+    ob = v_badanswers[qrand()%(v_badanswers.size()-1) ];
 
     f=(qrand()%3);
     switch(f)
     {
         // Dobra odpowiedz A
         case 0:
-        ustawOdp( oa, ob, oc);
+        setAnswers(oa, ob, oc);
         ui->pOdpA->setText(oa);
         ui->pOdpB->setText(ob);
         ui->pOdpC->setText(oc);
         break;
         // Dobra odpowiedz B
         case 1:
-        ustawOdp( ob, oa, oc);
+        setAnswers(ob, oa, oc);
         ui->pOdpA->setText(ob);
         ui->pOdpB->setText(oa);
         ui->pOdpC->setText(oc);
         break;
         // Dobra odpowiedz C
         case 2:
-        ustawOdp(oc,ob,oa);
+        setAnswers(oc,ob,oa);
         ui->pOdpA->setText(oc);
         ui->pOdpB->setText(ob);
         ui->pOdpC->setText(oa);
@@ -176,19 +173,19 @@ void DialogT::umiescOdp(QString oa)
 
 }
 
-void DialogT::import(QVector<QString> &db, QString &f)
+void DialogT::import(QVector<QString>& v_category, QString &f)
 {
-    QString bufor;
-    QFile plik(f);
-    QTextStream stream(&plik);
+    QString buffer;
+    QFile file(f);
+    QTextStream stream(&file);
     stream.setCodec("UTF-8");
-    plik.open(QFile::ReadOnly);
+    file.open(QFile::ReadOnly);
     do
     {
-        bufor=stream.readLine();
-        db.append(bufor);
+        buffer=stream.readLine();
+        v_category.append(buffer);
     }
-    while(bufor!=NULL);
+    while(buffer!=NULL);
 
 }
 void DialogT::Pressed(int)

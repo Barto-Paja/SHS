@@ -21,13 +21,10 @@ public:
     explicit Dialog(QWidget *parent = 0);
     ~Dialog();
 
-    QPixmap ns1;
-    QString ns2,ns3;
-
     void closeEvent ( QCloseEvent * event );
 
 public slots:
-    void odbior(QPixmap,QString,QString);
+    void SetItem(QPixmap,QString,QString);
     void Pressed(int);
 private slots:
     void statusChanged(QMediaPlayer::MediaStatus);  // obsługa zmian statusów

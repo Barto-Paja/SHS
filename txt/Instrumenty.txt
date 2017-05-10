@@ -1,4 +1,4 @@
-./img/gitaraA.jpg
+﻿./img/gitaraA1280.jpg
 ./sound/gitaraakustyczna.mp3
 Gitara Akustyczna
 ./img/drums1280.png
@@ -16,7 +16,7 @@ Piano
 ./img/tuba1280.jpg
 ./sound/tuba.mp3
 Tuba
-./img/violin1280.jpg
+./img/violin1280.png
 ./sound/skrzypce.mp3
 Skrzypce
 ./img/trumpet222667.jpg

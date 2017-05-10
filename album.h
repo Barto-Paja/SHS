@@ -2,7 +2,7 @@
 #define ALBUM_H
 
 #include <myqlabel.h>
-#include <kategorie.h>
+#include <categories.h>
 #include <item.h>
 #include <dialog.h>
 
@@ -23,21 +23,22 @@ class Album : public QDialog, private Item
 public:
     explicit Album(QWidget *parent = 0);
     ~Album();
+
     QString ns;
-    QVector<Item> basa;
-    QList<myQLabel *> tab;
+    QVector<Item> v_categoryItems;
+    QList<myQLabel *> l_myLabels;
 
     Dialog* form;
     int n;
 
 signals:
-    void info(QPixmap,QString,QString);
+    void item(QPixmap,QString,QString);
 public slots:
-    void odbiornik(QString);
+    void Reception(QString);
     void Pressed(int);
 
 private:
-    void spawanie(QString &f);
+    void SetupGui(QString &f);
     Ui::Album *ui;
 };
 

@@ -7,7 +7,7 @@ Album::Album(QWidget *parent) :
 {
     ui->setupUi(this);
     form = new Dialog(this);
-    connect(this,SIGNAL(info(QPixmap,QString,QString)),form,SLOT(odbior(QPixmap,QString,QString)));
+    connect(this,SIGNAL(item(QPixmap,QString,QString)),form,SLOT(SetItem(QPixmap,QString,QString)));
 }
 
 Album::~Album()
@@ -15,15 +15,13 @@ Album::~Album()
     delete ui;
 }
 
-void Album::odbiornik(QString n1)
+void Album::Reception(QString s_iteminfo)
 {
-    basa.clear();
-    ns=n1;
-    if(n1!=0)
+    v_categoryItems.clear();
+    if(s_iteminfo!=0)
     {
-      ns=n1;
-      Item::import(basa,ns);
-      spawanie(ns);
+      Item::Import(v_categoryItems,s_iteminfo);
+      SetupGui(s_iteminfo);
     }
     else
     {
@@ -35,32 +33,32 @@ void Album::odbiornik(QString n1)
 
 }
 
-void Album::Pressed(int t)
+void Album::Pressed(int index)
 {
-    QPixmap img = basa[t].SeeImg();
-    QString name = basa[t].SeeName();
-    QString sound = basa[t].SeeWsk();
+    QPixmap img = v_categoryItems[index].SeeImg();
+    QString name = v_categoryItems[index].SeeName();
+    QString sound = v_categoryItems[index].SeePtr();
 
-    emit info(img,name,sound);
+    emit item(img,name,sound);
 
     form->setModal(true);
     form->exec();
 }
 
 
-void Album::spawanie(QString &f)
+void Album::SetupGui(QString &f)
 {
     int n;
     QFile p(f);
-    Item::ilewierszy(p,n=0);
+    Item::CountLines(p,n=0);
     n=n/3;
     for(int i=0; i<n; i++)
     {
-        tab << new myQLabel(this);
-        tab.at(i)->SetRef(i);
-        tab.at(i)->setPixmap(basa[i].SeeImg().scaled(300,164,Qt::KeepAspectRatio));
-        tab.at(i)->setFrameStyle(3);
-        ui->gridLayout->addWidget(tab.at(i),(i/3),(i%3));
-        connect(tab.at(i),SIGNAL(Pressed(int)),this,SLOT(Pressed(int)));
+        l_myLabels << new myQLabel(this);
+        l_myLabels.at(i)->SetRef(i);
+        l_myLabels.at(i)->setPixmap(v_categoryItems[i].SeeImg().scaled(300,164,Qt::KeepAspectRatio));
+        l_myLabels.at(i)->setFrameStyle(3);
+        ui->gridLayout->addWidget(l_myLabels.at(i),(i/3),(i%3));
+        connect(l_myLabels.at(i),SIGNAL(Pressed(int)),this,SLOT(Pressed(int)));
     }
 }

@@ -5,7 +5,6 @@ myQLabel::myQLabel(QWidget *parent) : QLabel(parent)
 
 }
 
-// Sygnały, kliknięcie, nr Referencyjny
 void myQLabel::mousePressEvent(QMouseEvent *event)
 {
     int q = SeeRef();
@@ -18,6 +17,5 @@ void myQLabel::SetRef(int i)
 }
 int myQLabel::SeeRef()
 { return RefCode; }
-// ---------------------------------------- //
 
 

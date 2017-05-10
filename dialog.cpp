@@ -19,16 +19,13 @@ Dialog::~Dialog()
 {
     delete ui;
 }
-void Dialog::odbior(QPixmap n1, QString n2, QString n3)
+void Dialog::SetItem(QPixmap image, QString name, QString sound)
 {
-    ns1 = n1; // img
-    ns2 = n2; // name
-    ns3 = n3; // sound
+    Dialog::windowTitle() = name;
 
-
-    ui->label->setPixmap(ns1.scaled(760,430,Qt::KeepAspectRatio));
-    player->setMedia(QUrl::fromLocalFile(ns3));
-    ui->label_2->setText(ns2);
+    ui->label->setPixmap(image.scaled(760,430,Qt::KeepAspectRatio));
+    player->setMedia(QUrl::fromLocalFile(sound));
+    ui->label_2->setText(name);
 }
 
 void Dialog::Pressed(int)

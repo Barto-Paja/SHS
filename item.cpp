@@ -1,60 +1,61 @@
 #include "item.h"
 
-Item::Item():img(),wsk("txt"),name("txt")
+Item::Item():img(),ptr("txt"),name("txt")
 {
 }
 
-void Item::import(QVector<Item> &tab, QString &f)
+void Item::Import(QVector<Item>& v_item, QString& f)
 {
-    QString bufor;
-    QFile plik(f);
-    QTextStream stream(&plik);
+    QString buffer;
+    QFile file(f);
+    QTextStream stream(&file);
     stream.setCodec("UTF-8");
 
     int size;
-    ilewierszy(plik, size=0);
-    plik.open(QFile::ReadOnly);
+    CountLines(file, size=0);
+    file.open(QFile::ReadOnly);
     for(int i=0;i<(size/3);i++)
     {
-        Item nosnik;
-        bufor = stream.readLine();
-        nosnik.SetImg(bufor);
+        Item carrier;
+        buffer = stream.readLine();
+        carrier.SetImg(buffer);
 
-        bufor= stream.readLine();
-        nosnik.SetWsk(bufor);
+        buffer = stream.readLine();
+        carrier.SetPtr(buffer);
 
-        bufor= stream.readLine();
-        nosnik.SetName(bufor);
+        buffer = stream.readLine();
+        carrier.SetName(buffer);
 
-        tab.append(nosnik);
-        }
+        v_item.append(carrier);
+    }
     size=0;
-    plik.close();
+    file.close();
 }
 
-int Item::ilewierszy(QFile &plik, int &i)
+int Item::CountLines(QFile &f, int &i)
 {
-    plik.open(QFile::ReadOnly);
-       QString bufor;
-       QTextStream stream(&plik);
-       while(!stream.atEnd())
-       {
-           bufor = stream.readLine();
-           i++;
-       }
-    plik.close();
+    QString buffer;
+    QTextStream stream(&f);
+
+    f.open(QFile::ReadOnly);
+    while(!stream.atEnd())
+    {
+        buffer = stream.readLine();
+        i++;
+    }
+    f.close();
     return i;
 }
 void Item::SetImg(QString x)
 { img = x; }
-void Item::SetWsk(QString y)
-{ wsk = y; }
+void Item::SetPtr(QString y)
+{ ptr = y; }
 void Item::SetName(QString z)
 { name = z; }
 
 QPixmap Item::SeeImg()
 { return img; }
-QString Item::SeeWsk()
-{ return wsk; }
+QString Item::SeePtr()
+{ return ptr; }
 QString Item::SeeName()
 { return name; }

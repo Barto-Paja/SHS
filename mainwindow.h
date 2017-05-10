@@ -1,7 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <kategorie.h>
+#include <categories.h>
 
 #include <QMainWindow>
 
@@ -15,7 +15,7 @@ class MainWindow : public QMainWindow
 
 public:
     bool quiz = false;
-    Kategorie* gui;
+    Categories* gui;
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 signals:

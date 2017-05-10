@@ -8,10 +8,7 @@
         <file>txt/ZwierzetaEgzotyczne.txt</file>
         <file>txt/zle_odpowiedzi.txt</file>
         <file>txt/Inne.txt</file>
-        <file>txt/CodzienneDzwieki.txt</file>
         <file>txt/Ludzie.txt</file>
-        <file>txt/Przyroda.txt</file>
-        <file>txt/SygnalyAlarmowe.txt</file>
     </qresource>
     <qresource prefix="/ico">
         <file>img/hearing-99016_1280.png</file>

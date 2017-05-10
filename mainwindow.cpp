@@ -6,8 +6,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    gui = new Kategorie(this);
-    connect(this,SIGNAL(quest(bool)),gui,SLOT(qOdbior(bool)));
+    gui = new Categories(this);
+    connect(this,SIGNAL(quest(bool)),gui,SLOT(bInfo(bool)));
 }
 MainWindow::~MainWindow()
 {
@@ -16,7 +16,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pView_clicked()
 {
-    Kategorie okno;
+    Categories okno;
     okno.setModal(true);
     okno.exec();
 }

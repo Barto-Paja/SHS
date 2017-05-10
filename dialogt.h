@@ -2,7 +2,7 @@
 #define DIALOGT_H
 
 #include <myqlabel.h>
-#include <kategorie.h>
+#include <categories.h>
 #include <item.h>
 
 #include <QDialog>
@@ -27,43 +27,42 @@ public:
     explicit DialogT(QWidget *parent = 0);
     ~DialogT();
 
-    QString ns;
-    QVector<Item> bassa;
-    QVector<QString> zleOdp;
+    QVector<Item> v_categoryitems;
+    QVector<QString> v_badanswers;
     myQLabel *tabl1[9];
-    int t=0;
+    int index=0;
 
     // Ustawienie odpowiedzi
-    void ustawOdp(QString a,QString b, QString c);
-    void ustawOdpinA(QString a);
-    void ustawOdpinB(QString a);
-    void ustawOdpinC(QString a);
+    void setAnswers(QString a,QString b, QString c);
+    void setAnswerA(QString a);
+    void setAnswerB(QString a);
+    void setAnswerC(QString a);
 
     void cleanButton();
 
-    QString beltOdp(int x);
-    void spr_odpowiedz(QString &o, int &w);
+    QString& showAnswer(int x);
+    void checkAnswer(QString& chosenAnswer, int& ifq);
 
 public slots:
-    void odbiornik(QString);
+    void questsource(QString);
     void Pressed(int);
 
 private slots:
-    // Przyciski
-    void on_pOdpA_clicked();
-    void on_pOdpB_clicked();
-    void on_pOdpC_clicked();
+    // Przyciski -- Buttons
+    void on_pOdpA_clicked(); // Answer A
+    void on_pOdpB_clicked(); // Answer B
+    void on_pOdpC_clicked(); // Answer C
     void on_pNext_clicked();
 
     void statusChanged(QMediaPlayer::MediaStatus);  // obsługa zmian statusów
     void play();					// reakcje na wciśnięcie:	// odtwórz/pauza
     void stop();
 
-    void umiescOdp(QString oa);
-    void import(QVector<QString> &db, QString &f);
+    void setAnswer(QString oa);
+    void import(QVector<QString>& v_category, QString &f);
 private:
     // Odpowiedzi
-    QString OdpA,OdpB,OdpC;
+    QString AnsA,AnsB,AnsC;
     QMediaPlayer *player;
     Ui::DialogT *ui;
 };

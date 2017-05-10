@@ -16,20 +16,20 @@ class Item
 public:
     Item();
 
-    void import(QVector<Item> &tab, QString& f);
-    int ilewierszy(QFile& plik, int& i);
+    void Import(QVector<Item>& v_item, QString& f);
+    int CountLines(QFile& f, int& i);
 
     void SetImg(QString x);
-    void SetWsk(QString y);
+    void SetPtr(QString y);
     void SetName(QString z);
 
     QPixmap SeeImg();
-    QString SeeWsk();
+    QString SeePtr();
     QString SeeName();
 
 private:
     QPixmap img;
-    QString wsk;
+    QString ptr;  // Ptr -> pointer
     QString name;
 };
 

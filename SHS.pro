@@ -15,26 +15,26 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    kategorie.cpp \
     album.cpp \
     myqlabel.cpp \
     item.cpp \
     dialog.cpp \
-    dialogt.cpp
+    dialogt.cpp \
+    categories.cpp
 
 HEADERS  += mainwindow.h \
-    kategorie.h \
     album.h \
     myqlabel.h \
     item.h \
     dialog.h \
-    dialogt.h
+    dialogt.h \
+    categories.h
 
 FORMS    += mainwindow.ui \
-    kategorie.ui \
     album.ui \
     dialog.ui \
-    dialogt.ui
+    dialogt.ui \
+    categories.ui
 
 RESOURCES += \
     zasoby.qrc
