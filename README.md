@@ -2,8 +2,7 @@
 
 [EN]
 
-"Say Hear See" is a program for young children with loss of hearing. It show animal/things pictures and you may click on picture to hear simple sample.
-If you want you can to take an assesment in simple test.
+"Say Hear See" is a program for young children with loss of hearing. It shows animal/things pictures and you may click on picture to hear simple sample. That is, if you want you can to take an assessment in simple test.
 
 Realese version you may download from: http://demo.bartoit.pl/Say%20Hear%20See.rar
 
