@@ -57,7 +57,8 @@ void Categories::SetupGui(QVector<Item>& v_it, QString& file)
         l_myLabels << new myQLabel(this);
         l_myLabels.at(i)->SetRef(i);
         l_myLabels.at(i)->setPixmap(v_it[i].SeeImg().scaled(300,164,Qt::KeepAspectRatio));
-        l_myLabels.at(i)->setFrameStyle(3);
+        //l_myLabels.at(i)->setFrameStyle(3);
+        l_myLabels.at(i)->setAlignment(Qt::AlignCenter);
     }
 
     for(int i=0;i<n;i++)

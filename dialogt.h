@@ -30,7 +30,6 @@ public:
     QVector<Item> v_categoryitems;
     QVector<QString> v_badanswers;
     myQLabel *tabl1[9];
-    int index=0;
 
     // Ustawienie odpowiedzi
     void setAnswers(QString a,QString b, QString c);
@@ -62,6 +61,8 @@ private slots:
     void import(QVector<QString>& v_category, QString &f);
 private:
     // Odpowiedzi
+    int idx=0;
+    int t=0;
     QString AnsA,AnsB,AnsC;
     QMediaPlayer *player;
     Ui::DialogT *ui;

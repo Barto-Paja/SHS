@@ -57,7 +57,8 @@ void Album::SetupGui(QString &f)
         l_myLabels << new myQLabel(this);
         l_myLabels.at(i)->SetRef(i);
         l_myLabels.at(i)->setPixmap(v_categoryItems[i].SeeImg().scaled(300,164,Qt::KeepAspectRatio));
-        l_myLabels.at(i)->setFrameStyle(3);
+        //l_myLabels.at(i)->setFrameStyle(3);
+        l_myLabels.at(i)->setAlignment(Qt::AlignCenter);
         ui->gridLayout->addWidget(l_myLabels.at(i),(i/3),(i%3));
         connect(l_myLabels.at(i),SIGNAL(Pressed(int)),this,SLOT(Pressed(int)));
     }

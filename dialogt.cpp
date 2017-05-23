@@ -88,9 +88,13 @@ void DialogT::questsource(QString source)
     if(source!=0)
     {
         Item::Import( v_categoryitems, source);
-        ui->label->setPixmap(v_categoryitems[index].SeeImg().scaled(640,300,Qt::KeepAspectRatio));
-        setAnswer(v_categoryitems[index].SeeName());
-        player->setMedia(QUrl(v_categoryitems[index].SeePtr()));
+
+        QFile cont(source);
+        Item::CountLines(cont,t=0);
+
+        ui->label->setPixmap(v_categoryitems[idx].SeeImg().scaled(640,300,Qt::KeepAspectRatio));
+        setAnswer(v_categoryitems[idx].SeeName());
+        player->setMedia(QUrl(v_categoryitems[idx].SeePtr()));
     }
     else
     {
@@ -99,36 +103,36 @@ void DialogT::questsource(QString source)
 }
 void DialogT::on_pOdpA_clicked()
 {
-    checkAnswer(showAnswer(1),index);
+    checkAnswer(showAnswer(1),idx);
 }
 
 void DialogT::on_pOdpB_clicked()
 {
-    checkAnswer(showAnswer(2),index);
+    checkAnswer(showAnswer(2),idx);
 }
 
 void DialogT::on_pOdpC_clicked()
 {
-    checkAnswer(showAnswer(3),index);
+    checkAnswer(showAnswer(3),idx);
 }
 
 void DialogT::on_pNext_clicked()
 {
-    index++;
-    ui->label->setPixmap(QPixmap(v_categoryitems[index].SeeImg().scaled(640,300,Qt::KeepAspectRatio)));
-    setAnswer(v_categoryitems[index].SeeName());
-    player->setMedia(QUrl(v_categoryitems[index].SeePtr()));
-    cleanButton();
+    idx++;
 
-    if(index==9)
+    if(idx>(t/3)-1) // liczba przedmiotow-1
     {
-        index=0;
+        idx=0;
         player->stop();
         cleanButton();
         delete ui;
         this->close();
 
     }
+    ui->label->setPixmap(QPixmap(v_categoryitems[idx].SeeImg().scaled(640,300,Qt::KeepAspectRatio)));
+    setAnswer(v_categoryitems[idx].SeeName());
+    player->setMedia(QUrl(v_categoryitems[idx].SeePtr()));
+    cleanButton();
 }
 void DialogT::setAnswer(QString oa)
 {
@@ -188,6 +192,7 @@ void DialogT::import(QVector<QString>& v_category, QString &f)
     while(buffer!=NULL);
 
 }
+
 void DialogT::Pressed(int)
 {
     player->play();
