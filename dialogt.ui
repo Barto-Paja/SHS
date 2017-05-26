@@ -81,7 +81,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>Dalej</string>
    </property>
   </widget>
   <widget class="QLabel" name="l_Odp">

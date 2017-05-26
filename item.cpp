@@ -32,7 +32,7 @@ void Item::Import(QVector<Item>& v_item, QString& f)
     file.close();
 }
 
-int Item::CountLines(QFile &f, int &i)
+int Item::CountLines(QFile &f, int& i)
 {
     QString buffer;
     QTextStream stream(&f);
@@ -53,9 +53,9 @@ void Item::SetPtr(QString y)
 void Item::SetName(QString z)
 { name = z; }
 
-QPixmap Item::SeeImg()
+QPixmap Item::SeeImg() const
 { return img; }
-QString Item::SeePtr()
+QString Item::SeePtr() const
 { return ptr; }
-QString Item::SeeName()
+QString Item::SeeName() const
 { return name; }

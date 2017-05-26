@@ -14,7 +14,8 @@ public:
 
     void mousePressEvent(QMouseEvent *event);
     void SetRef(int i);
-    int SeeRef();
+
+    int SeeRef() const;
 
 
 signals:

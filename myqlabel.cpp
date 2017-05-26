@@ -15,7 +15,7 @@ void myQLabel::SetRef(int i)
 {
     RefCode = i;
 }
-int myQLabel::SeeRef()
+int myQLabel::SeeRef() const
 { return RefCode; }
 
 

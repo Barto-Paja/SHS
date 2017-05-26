@@ -23,6 +23,13 @@ public:
     explicit Categories(QWidget *parent = 0);
     ~Categories();
 
+signals:
+    void send(QString);
+private slots:
+    void Pressed(int);
+    void bInfo(bool);
+
+private:
     Album* form;
     DialogT* form2;
     QString t_setofcategory;
@@ -32,13 +39,6 @@ public:
 
     bool info = false;
 
-signals:
-    void send(QString);
-private slots:
-    void Pressed(int);
-    void bInfo(bool);
-
-private:
     Ui::Categories *ui;
     void SetupGui(QVector<Item>& v_it, QString& file);
 };

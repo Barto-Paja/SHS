@@ -17,15 +17,15 @@ public:
     Item();
 
     void Import(QVector<Item>& v_item, QString& f);
-    int CountLines(QFile& f, int& i);
+    int CountLines(QFile& f, int &i);
 
     void SetImg(QString x);
     void SetPtr(QString y);
     void SetName(QString z);
 
-    QPixmap SeeImg();
-    QString SeePtr();
-    QString SeeName();
+    QPixmap SeeImg() const;
+    QString SeePtr() const;
+    QString SeeName() const;
 
 private:
     QPixmap img;

@@ -24,12 +24,8 @@ public:
     explicit Album(QWidget *parent = 0);
     ~Album();
 
-    QString ns;
     QVector<Item> v_categoryItems;
     QList<myQLabel *> l_myLabels;
-
-    Dialog* form;
-    int n;
 
 signals:
     void item(QPixmap,QString,QString);
@@ -38,6 +34,11 @@ public slots:
     void Pressed(int);
 
 private:
+
+    QString ns;
+    Dialog* form;
+    int n;
+
     void SetupGui(QString &f);
     Ui::Album *ui;
 };

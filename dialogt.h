@@ -27,10 +27,6 @@ public:
     explicit DialogT(QWidget *parent = 0);
     ~DialogT();
 
-    QVector<Item> v_categoryitems;
-    QVector<QString> v_badanswers;
-    myQLabel *tabl1[9];
-
     // Ustawienie odpowiedzi
     void setAnswers(QString a,QString b, QString c);
     void setAnswerA(QString a);
@@ -60,6 +56,11 @@ private slots:
     void setAnswer(QString oa);
     void import(QVector<QString>& v_category, QString &f);
 private:
+
+    QVector<Item> v_categoryitems;
+    QVector<QString> v_badanswers;
+    myQLabel *tabl1[9];
+
     // Odpowiedzi
     int idx=0;
     int t=0;
