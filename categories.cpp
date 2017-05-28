@@ -47,12 +47,11 @@ void Categories::SetupGui(QVector<Item>& v_it, QString& file)
     int n;
 
     Item::Import(v_it,file);
-    Item::CountLines(f,n=0);
+    Item::CountLines(f,n);
 
     ui->gridLayout->setSpacing(10);
-    n=n/3;
 
-    for(int i=0;i<n;i++)
+    for(int i=0;i<(n/3);i++)
     {
         l_myLabels << new myQLabel(this);
         l_myLabels.at(i)->SetRef(i);
@@ -61,7 +60,7 @@ void Categories::SetupGui(QVector<Item>& v_it, QString& file)
         l_myLabels.at(i)->setAlignment(Qt::AlignCenter);
     }
 
-    for(int i=0;i<n;i++)
+    for(int i=0;i<(n/3);i++)
     {
         ui->gridLayout->addWidget(l_myLabels.at(i),(i/3),(i%3));
         connect(l_myLabels.at(i),SIGNAL(Pressed(int)),this,SLOT(Pressed(int)));

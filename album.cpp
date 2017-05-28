@@ -50,9 +50,9 @@ void Album::SetupGui(QString &f)
 {
     int n;
     QFile p(f);
-    Item::CountLines(p,n=0);
-    n=n/3;
-    for(int i=0; i<n; i++)
+    Item::CountLines(p,n);
+
+    for(int i=0; i<(n/3); i++)
     {
         l_myLabels << new myQLabel(this);
         l_myLabels.at(i)->SetRef(i);

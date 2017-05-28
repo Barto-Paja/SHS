@@ -37,6 +37,7 @@ int Item::CountLines(QFile &f, int& i)
     QString buffer;
     QTextStream stream(&f);
 
+    i=0; // <-- resetowanie zmiennej
     f.open(QFile::ReadOnly);
     while(!stream.atEnd())
     {

@@ -90,7 +90,7 @@ void DialogT::questsource(QString source)
         Item::Import( v_categoryitems, source);
 
         QFile cont(source);
-        Item::CountLines(cont,t=0);
+        Item::CountLines(cont,t);
 
         ui->label->setPixmap(v_categoryitems[idx].SeeImg().scaled(640,300,Qt::KeepAspectRatio));
         setAnswer(v_categoryitems[idx].SeeName());
